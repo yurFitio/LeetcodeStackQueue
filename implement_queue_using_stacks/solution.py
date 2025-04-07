@@ -18,17 +18,18 @@ class MyQueue:
             while not self.stack_in.is_empty():
                 self.stack_out.push(self.stack_in.pop())
             if self.stack_out.is_empty():
-                raise ValueError("Pop from empty queue")
+                raise IndexError("Pop from empty queue")
         return self.stack_out.pop()
 
 
     def peek(self) -> int:
         """Returns the element at the front of the queue."""
-        if self.stack_out:
-            return self.stack_out.peek()
-        if self.stack_in.is_empty():
-            raise ValueError("peek from empty queue")
-        return self.stack_in.peek()
+        if self.stack_out.is_empty():
+            while not self.stack_in.is_empty():
+                self.stack_out.push(self.stack_in.pop())
+            if self.stack_out.is_empty():
+                raise IndexError("peek from empty queue")
+        return self.stack_out.peek()
 
     def empty(self) -> bool:
         """Returns whether it's empty"""

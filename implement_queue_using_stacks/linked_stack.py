@@ -51,5 +51,6 @@ if __name__ == '__main__':
     for i in linked_list:
         print(i)
 
+    print(linked_list.peek())
     print(linked_list.pop())
-    print(linked_list.pop())
+    print(linked_list.is_empty())
