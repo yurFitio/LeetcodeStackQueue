@@ -34,3 +34,16 @@ class LinkedQueue:
 
     def is_empty(self):
         return not self.tail
+
+
+if __name__ == '__main__':
+    a = LinkedQueue()
+    for i in range(3):
+        a.push(i)
+    print(a.peek())
+    for i in range(3):
+        print(a.pop())
+    try:
+        a.peek()
+    except IndexError as e:
+        print(e)
