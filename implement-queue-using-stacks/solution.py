@@ -33,7 +33,7 @@ class MyQueue:
 
     def empty(self) -> bool:
         """Returns whether it's empty"""
-        return not self.stack_in and not self.stack_out
+        return self.stack_in.is_empty() and self.stack_out.is_empty()
 
 
 # Your MyQueue object will be instantiated and called as such:
@@ -45,9 +45,17 @@ if __name__ == '__main__':
     param_2 = obj.pop()
     param_3 = obj.peek()
     param_4 = obj.empty()
-    print(param_2, param_3, param_4)
+    # print(param_2, param_3, param_4)
+    assert param_2 == 0
+    assert param_3 == 1
+    assert param_4 is False
     try:
         obj.pop()
         obj.peek()
     except IndexError:
-        print("Error detected")
+        ...
+    else:
+        raise IndexError
+
+    obj2 = MyQueue()
+    assert obj2.empty() is True
