@@ -1,4 +1,5 @@
 class Node:
+    """Just a node"""
     def __init__(self, value, next_node=None):
         self.value = value
         self.amount = 1
@@ -8,11 +9,12 @@ class Node:
     #     return f"Value: {self.value}, amount: {self.amount}, next: {self.next}"
 
 class FreqStack:
-
+    """constructs an empty frequency stack."""
     def __init__(self):
         self.head = None
 
     def push(self, val: int) -> None:
+        """pushes an integer val onto the top of the stack"""
         current = self.head
         self.head = Node(val, self.head)
         while current:
@@ -22,6 +24,7 @@ class FreqStack:
             current = current.next
 
     def pop(self) -> int:
+        """removes and returns the most frequent element in the stack. """
         if not self.head:
             raise IndexError
         previous, node_max = None, self.head
