@@ -8,18 +8,22 @@ class MyStack:
         self.queue_an = LinkedQueue()
 
     def push(self, x: int) -> None:
+        """Pushes element x to the top of the stack."""
         self.queue_an.push(x)
         while not self.queue_in.is_empty():
             self.queue_an.push(self.queue_in.pop())
         self.queue_in, self.queue_an = self.queue_an, self.queue_in
 
     def pop(self) -> int:
+        """Removes the element on the top of the stack and returns it."""
         return self.queue_in.pop()
 
     def top(self) -> int:
+        """Returns the element on the top of the stack."""
         return self.queue_in.peek()
 
     def empty(self) -> bool:
+        """Returns True if the stack is empty, False otherwise."""
         return self.queue_in.is_empty()
 
 
